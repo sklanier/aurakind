@@ -1,4 +1,3 @@
-// @ts-check
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -23,6 +22,7 @@ async function createServer() {
     '*',
     hydrogenMiddleware({
       getServerEntrypoint: () =>
+        // @ts-ignore
         require('./dist/server/entry-server.js').default,
       indexTemplate: indexProd,
     }),
